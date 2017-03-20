@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    color: white;
+}
+
+
+section {
+    width: 350px;
+    border: 15px solid;
+    border-color: #3484f0;
+    font-size: 36px;
+}
+
+.box1 {
+    height: 258px;
+    background-color: #e67676;
+    margin-bottom: 5px;
+}
+
+.North {
+    height: 79px;
+    padding-top: 50px;
+
+}
+
+.box2 {
+    height: 258px;
+    background-color: #a9e6e6;
+    margin-top: 2px;
+}
+
+.South {
+    height: 79px;
+    padding-top: 50px;
+}

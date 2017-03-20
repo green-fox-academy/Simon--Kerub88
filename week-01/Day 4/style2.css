@@ -1,0 +1,29 @@
+section {
+    width: 380px;
+    border: 15px solid;
+    border-color: #3484f0;
+}
+/*130 magas 350 szeles*/
+div {
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    height: 90px;
+    padding-top: 40px;
+}
+
+.North {
+    background-color: #ee7678;
+}
+
+.East {
+    background-color: #f3f170;
+}
+
+.South {
+    background-color: #a1e6e6;
+}
+
+.West {
+    background-color: #7291e0;
+}
