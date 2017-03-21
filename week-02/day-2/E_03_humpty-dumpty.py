@@ -1,0 +1,8 @@
+vers3 = ("All the king's horses and all the king's men")
+vers2 = ("Humpty Dumpty had a great fall.")
+vers1 = ("Humpty Dumpty sat on a wall,")
+vers4 = ("Couldn't put Humpty together again.")
+print(vers1)
+print(vers2)
+print(vers3)
+print(vers4)
