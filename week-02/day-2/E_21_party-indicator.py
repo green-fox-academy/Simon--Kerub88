@@ -23,22 +23,14 @@ girls = int(input())
 
 party_animals = boys + girls
 
-if boys == girls and party_animals > 20:
+if  girls == boys  and party_animals > 20 and girls > 0:
     print("The party is exellent!")
-elif boys != girls and party_animals > 20:
+elif boys != girls and party_animals > 20 and girls > 0:
     print("Quite cool party!")
-elif party_animals < 20 and girls >= 0:
+elif party_animals < 20 and girls > 0:
     print("Average party...")
 elif girls == 0 :
     print("Sausage party")
-
-
-
-
-
-
-
-
 
 
 
