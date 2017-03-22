@@ -6,4 +6,4 @@ num2 = int(input())
 
 if num1 > num2:
     print("Mr. Bigger number is ", num1)
-else: print("Mr. Bigger number is ", num1)
+else: print("Mr. Bigger number is ", num2)
