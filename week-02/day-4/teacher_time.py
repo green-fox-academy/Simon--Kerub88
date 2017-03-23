@@ -76,7 +76,7 @@ for key in pirate:
 # masik modszer
 for key, value in pirate.items():
     print(key)
-    print(value])
+    print([value])
 
 for key in pirate:
     print(key + " : " + str(pirate[key]))
