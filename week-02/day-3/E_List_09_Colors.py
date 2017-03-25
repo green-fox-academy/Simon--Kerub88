@@ -6,3 +6,13 @@
 #   `"orange red", "red", "tomato"`
 # - In `colors[2]` store the shades of pink:
 #   `"orchid", "violet", "pink", "hot pink"`
+
+colors = {"green" : ["lime", "forest green", "olive", "pale green", "spring green"], "red" : ["orange red", "red", "tomato"], "pink" : ["orchid", "violet", "pink", "hot pink"]}
+
+
+# egy olyan loopot hozok letre ahol ha key elemhez erkezunk akkor menjen vegig a listaelemein es printelje ki a key neve ala a valuekat
+
+for k, v in colors.items():
+    # if colors[c] == "green":
+
+    print(k, v)
