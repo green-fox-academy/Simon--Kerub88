@@ -8,11 +8,16 @@
 #
 # The triangle should have as many lines as the number was
 
-number = str(input("Enter a number. HUMAN!: "))
+# number = int(input("Enter a long number. HUMAN!: "))
+#
+# for n in range(1, number + 1):
+#
+#     print("*"*n)
 
-num_list = list(number + "1")
 
-for n in range(0, len(num_list)):
-    num_list[n] = n * "*"
+number = 5 
 
-    print(num_list[n])
+x = 1
+while (x <= number):
+    print("*" * x)
+    x = x + 1
