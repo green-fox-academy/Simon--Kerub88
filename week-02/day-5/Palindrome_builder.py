@@ -4,4 +4,4 @@ def palindrom(text):
     text = text + text[::-1]
     return text
 
-print(palindrom("Bence"))
+print(palindrom("123"))

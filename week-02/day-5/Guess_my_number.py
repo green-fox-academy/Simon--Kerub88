@@ -14,7 +14,7 @@
 #
 # 15
 # Congratulations. You won!
-
+import random
 
 print("\n"
 "\n"
@@ -28,11 +28,51 @@ print("\n"
       "\n"
       "\n"
       "Set the range of guess\n"
-      "Guess between: (first number?)" )
+      "Guess between: \n"
+      "(first number?)" )
 
 
 range1 = int(input())
-print("second number?")
+print("(second number?)")
 range2 = int(input())
 
+my_number = random.randrange(range1, range2)
+
+print(my_number)
+
 print("I thought a number between", range1, "-", range2)
+
+print("What is your guess?")
+guess = int(input())
+found = my_number == guess
+trys = 2
+
+if found:
+    print("****************************\n"
+    "\n"
+    "YOU WON! That was the numbe I guessed\n"
+    "\n"
+    "****************************")
+
+while (not found) and trys!= 0:
+
+    if guess < my_number:
+        print("Not the number I guessed\n"
+        "Try a higher number!\n"
+        "You have " + str(trys) + " trys left")
+        trys -= 1
+        guess = int(input())
+
+    elif guess > my_number:
+        print("Not the number I guessed\n"
+        "Try a lower number\n"
+        "You have " + str(trys) + " trys left")
+        trys -= 1
+        guess = int(input())
+
+if trys == 0:
+    print("****************************\n"
+    "\n"
+    "GAME OVER\n"
+    "\n"
+    "****************************")
