@@ -38,14 +38,13 @@ range2 = int(input())
 
 my_number = random.randrange(range1, range2)
 
-print(my_number)
+# print(my_number)
 
 print("I thought a number between", range1, "-", range2)
 
-print("What is your guess?")
-guess = int(input())
-found = my_number == guess
-trys = 2
+tries = 3
+found = False
+
 
 if found:
     print("****************************\n"
@@ -54,25 +53,35 @@ if found:
     "\n"
     "****************************")
 
-while (not found) and trys!= 0:
+while (not found) and tries > 0:
+
+    print("You have " + str(tries) + " tries. What is your guess?\n")
+    guess = int(input())
 
     if guess < my_number:
         print("Not the number I guessed\n"
-        "Try a higher number!\n"
-        "You have " + str(trys) + " trys left")
-        trys -= 1
-        guess = int(input())
+        "Try a higher number!\n")
+        tries -= 1
 
     elif guess > my_number:
         print("Not the number I guessed\n"
-        "Try a lower number\n"
-        "You have " + str(trys) + " trys left")
-        trys -= 1
-        guess = int(input())
+        "Try a lower number\n")
+        tries -= 1
 
-if trys == 0:
+    else:
+        found = True
+        print("**************************************\n"
+        "\n"
+        "YOU WON! That was the numbe I guessed\n"
+         "\n"
+        "**************************************")
+
+if tries <= 0:
     print("****************************\n"
     "\n"
     "GAME OVER\n"
     "\n"
-    "****************************")
+    "****************************\n"
+    "\n"
+    "My number was " + str(my_number) + "\n"
+    "\n")
