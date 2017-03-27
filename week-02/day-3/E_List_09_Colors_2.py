@@ -15,23 +15,16 @@
 
 # egy olyan loopot hozok letre ahol a valuekat berakja egy listaba es minden listahoz hozzarendeli a kulcsait egy listaba agyazva es a key listakat len-ezem
 
-# colors = {"lime" : "green", "forest green" : "green", "olive" : "green", "pale green" : "green", "spring green" : "green", "orange red" : "red", "red" : "red", "tomato" : "red", "orchid" : "pink", "violet" : "pink", "pink" : "pink", "hot pink" : "pink"}
-#
-# colors_green = []
-# colors_red = []
-# colors_pink = []
-#
-# for k, v in colors.items():
-#     if v == "green":
-#         colors_green.append(colors[v])
-#     # if colors[c] == "green":
-#
-#     print(colors_green)
+colors = {"lime" : "green", "forest green" : "green", "olive" : "green", "pale green" : "green", "spring green" : "green", "orange red" : "red", "red" : "red", "tomato" : "red", "orchid" : "pink", "violet" : "pink", "pink" : "pink", "hot pink" : "pink"}
 
+colors_green = []
+colors_red = []
+colors_pink = []
 
-colors = []
-colors.append(["lime", "forest green", "olive", "pale green", "spring green"])
-colors.append(["orange red", "red", "tomato"])
-colors.append(["orchid", "violet", "pink", "hot pink"])
+for k, v in colors.items():
+    if v == "green":
+        colors_green.append(colors[])
+        print
+    # if colors[c] == "green":
 
-print(colors[2])
+    print(colors_green)
