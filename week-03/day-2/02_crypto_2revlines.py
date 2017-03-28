@@ -4,8 +4,8 @@ text = fr.readlines()
 
 def decrypt(file_name):
     decode_text = ""
-    for t in range(0, len(file_name)):
-        decode_text += file_name[-t]
+    for line in range(0, len(text)):
+        decode_text += text[line][::-1]
     return decode_text
 
 print(decrypt(text))
