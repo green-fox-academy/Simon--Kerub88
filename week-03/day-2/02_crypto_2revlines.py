@@ -2,7 +2,7 @@
 fr = open("reversed-lines.txt")
 text = fr.readlines()
 
-def decrypt(file_name):
+def decrypt(text_content):
     decode_text = ""
     for line in range(0, len(text)):
         decode_text += text[line][::-1]
