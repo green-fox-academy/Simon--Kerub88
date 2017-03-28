@@ -13,3 +13,4 @@ def decrypt(file_name):
 
 
 print(decrypt(text))
+fr.close()
