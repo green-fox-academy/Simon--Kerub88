@@ -25,7 +25,5 @@ for c in range(1, len(color)):
 
 
 square_drawn(140, "red")
-# square_drawn(100)
-# square_drawn(50)
 
 root.mainloop()
