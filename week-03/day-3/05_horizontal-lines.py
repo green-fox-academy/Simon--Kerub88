@@ -16,5 +16,4 @@ line_drawn(50, 50)
 line_drawn(200, 60)
 line_drawn(150, 150)
 
-
 root.mainloop()

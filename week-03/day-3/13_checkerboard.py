@@ -15,8 +15,9 @@ for i in range(8):
     x2 = 0
     y1 = 37.5
     y2 = 37.5
-    chess_lines(0, 0, 37.5, 37.5)
-    x1 += i * 37.5
-    y1 += i * 37.5
+    chess_lines(x1 += i * 37.5, x2, y1 += i * 37.5, y2 += i * 37.5)
+    # x1 += i * 37.5
+    # y1 += i * 37.5
+    # y2 += i * 37.5
 
 root.mainloop()

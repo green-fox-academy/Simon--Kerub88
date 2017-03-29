@@ -19,5 +19,4 @@ for s in range(19):
     x = y
     y += 10
 
-
 root.mainloop()
