@@ -14,8 +14,8 @@ def square_drawn(size):
     size = size / 2
     square = canvas.create_rectangle(150 - size, 150 - size, 150 + size, 150 + size)
 
-
 square_drawn(140)
 square_drawn(100)
 square_drawn(50)
+
 root.mainloop()
