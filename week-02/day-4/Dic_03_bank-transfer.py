@@ -14,4 +14,12 @@ accounts = [
 	{ 'client_name': 'Sergei', 'account_number': 23456311, 'balance': 1353600.0 }
 ]
 
-def bank_user_list():
+def bank_user_database(accounts):
+    clients = ""
+    for i in accounts:
+        clients += i["client_name"] + " " + str(i["balance"]) + " " "\n"
+    return clients
+
+
+
+print(bank_user_database(accounts))
