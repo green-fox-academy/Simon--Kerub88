@@ -43,4 +43,4 @@ def bank_transfer(from_acc,to_acc, transfer):
 
     return accounts_rewrite
 
-print(bank_transfer("Putyin", accounts[2]["client_name"], 1000000000))
+print(bank_transfer(accounts[1]["client_name"], accounts[2]["client_name"], 1000000000))
