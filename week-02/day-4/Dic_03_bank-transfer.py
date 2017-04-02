@@ -14,12 +14,32 @@ accounts = [
 	{ 'client_name': 'Sergei', 'account_number': 23456311, 'balance': 1353600.0 }
 ]
 
-def bank_user_database(accounts):
-    clients = ""
-    for i in accounts:
-        clients += i["client_name"] + " " + str(i["balance"]) + " " "\n"
-    return clients
+# def bank_user_database(accounts):
+#     clients = ""
+#     for i in accounts:
+#         clients += i["client_name"] + " " + str(i["balance"]) + " " "\n"
+#     return clients
+#
+#
+#
+# print(bank_user_database(accounts))
 
+def bank_transfer(from_acc,to_acc, transfer):
+    accounts_rewrite = []
+    # from_acc_balance = 0
+    # to_acc_balance = 0
+    for bank_user in accounts:
+        if bank_user["client_name"] != accounts[0]["client_name"] and bank_user["client_name"] != accounts[1]["client_name"] and bank_user["client_name"] != accounts[2]["client_name"]:
+            print("404 - account not found")
+        if bank_user["client_name"] == from_acc:
+            bank_user["balance"] = bank_user["balance"] - transfer
+            accounts_rewrite.append(bank_user)
+        elif bank_user["client_name"] == to_acc:
+            bank_user["balance"] = bank_user["balance"] + transfer
+            accounts_rewrite.append(bank_user)
+        else:
+            accounts_rewrite.append(bank_user)
 
+    return accounts_rewrite
 
-print(bank_user_database(accounts))
+print(bank_transfer("Putyin", accounts[2]["client_name"], 1000000000))

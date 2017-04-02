@@ -23,21 +23,20 @@ queue = [
 
 def security_check(queue):
     temp_queue = []
-    free_to_go = []
     watchlist = []
     security_alchol_loot = 0
     for festivalers in queue:
+
         if festivalers["guns"] > 0:
             watchlist.append(festivalers["name"])
+
         elif festivalers["alcohol"] > 0:
             security_alchol_loot += festivalers["alcohol"]
             festivalers["alcohol"] = 0
-            free_to_go.append(festivalers["name"])
-            temp_queue.append(festivalers)
-        else:
-            free_to_go.append(festivalers["name"])
+
+        if festivalers["guns"] == 0 and festivalers["alcohol"] == 0:
             temp_queue.append(festivalers)
 
-    return free_to_go, watchlist, security_alchol_loot, temp_queue
+    return watchlist, security_alchol_loot, temp_queue
 
 print(security_check(queue))
