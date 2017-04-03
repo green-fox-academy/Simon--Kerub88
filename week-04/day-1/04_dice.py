@@ -44,6 +44,8 @@ print(dice.getCurrent())
 # print(dice.getCurrent(0))
 # print(dice.getCurrent())
 
+
+# rollolok a dice.roll()-al, majd elinditok egy ciklust ami vegigmegy 1-6ig. Minden allomason megnezi, h ay aktualis elem egyenlo e 6-al, ha nem akkor ujradobja az aktualis elemet.
 dice.roll()
 for d in range(0,6):
     while dice.getCurrent(d) != 6:
