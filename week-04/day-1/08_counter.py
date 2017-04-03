@@ -22,6 +22,7 @@ class Counter:
         self.value += number
 
     def get(self):
+        print(self.value)
         return self.value
 
     def reset(self):
