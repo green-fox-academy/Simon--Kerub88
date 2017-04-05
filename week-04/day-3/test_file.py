@@ -14,6 +14,13 @@ class TestApple(unittest.TestCase):
     def test_sum_for_zero(self):
         self.assertEqual(sum([]), 0)
 
+    def test_anagram_with_anagram(self):
+        mr_test = Apple("test")
+        self.assertEqual(mr_test.anagram("tokyo", "kyoto"), True)
+
+    def test_anagram_False_anagram(self):
+        mr_test = Apple("test")
+        self.assertEqual(mr_test.anagram("ttkyo", "kyoto"), False)
 
 
 

@@ -60,8 +60,3 @@ class Apple:
                 return False
         else:
             return False
-
-
-
-x = Apple("red")
-print(x.anagram("tokyo", "kyoto"))
