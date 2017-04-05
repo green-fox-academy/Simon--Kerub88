@@ -64,7 +64,7 @@ class Apple:
 # Write a function, that takes a string as an argument and returns a dictionary with all letters in the string as keys, and numbers as values that shows how many occurrences there are.
 # Create a test for that.
 
-    def string_to_dictionary(self, stfvuff):
+    def string_to_dictionary(self, stuff):
         self.stuff = stuff
         stuff_dic = {}
         for letter in stuff:
