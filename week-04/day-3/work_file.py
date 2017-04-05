@@ -66,10 +66,13 @@ class Apple:
 
     def string_to_dictionary(self, stuff):
         self.stuff = stuff
-            stuff_dic = dic()
-            for letter in stuff:
-                if letter not in stuff_dic:
-                    stuff_dic[letter] = 1
-                else:
-                    stuff_dic[letter] += 1
-            return stuff_dic
+        stuff_dic = {}
+        for letter in stuff:
+            if letter not in stuff_dic:
+                stuff_dic[letter] = 1
+            else:
+                stuff_dic[letter] += 1
+        return stuff_dic
+
+x = Apple("red")
+print(x.string_to_dictionary("tokyo"))

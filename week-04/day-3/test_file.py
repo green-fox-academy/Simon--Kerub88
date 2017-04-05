@@ -22,8 +22,9 @@ class TestApple(unittest.TestCase):
         mr_test = Apple("test")
         self.assertEqual(mr_test.anagram("ttkyo", "kyoto"), False)
 
-    
-
+    def test_string_to_dic(self):
+        mr_test = Apple("test")
+        self.assertEqual(mr_test.string_to_dictionary("tokyo"), {"t": 1, "o": 2, "k": 1, "y": 1})
 
 
 if __name__ == "__main__":
