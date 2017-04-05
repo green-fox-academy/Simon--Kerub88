@@ -26,6 +26,22 @@ class TestApple(unittest.TestCase):
         mr_test = Apple("test")
         self.assertEqual(mr_test.string_to_dictionary("tokyo"), {"t": 1, "o": 2, "k": 1, "y": 1})
 
+    def test_string_to_dic(self):
+        mr_test = Apple("test")
+        self.assertEqual(mr_test.string_to_dictionary("000"), {"0": 3})
+
+
+    def test_fibonacci_method_zero(self):
+        fibo = Apple("test")
+        self.assertEqual(fibo.fibonacci(0), 0)
+
+    def test_fibonacci_method_one(self):
+        fibo = Apple("test")
+        self.assertEqual(fibo.fibonacci(1), 1)
+
+    def test_fibonacci_method_number(self):
+        fibo = Apple("test")
+        self.assertEqual(fibo.fibonacci(6), 8)
 
 if __name__ == "__main__":
     unittest.main()

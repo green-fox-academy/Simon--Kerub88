@@ -64,7 +64,7 @@ class Apple:
 # Write a function, that takes a string as an argument and returns a dictionary with all letters in the string as keys, and numbers as values that shows how many occurrences there are.
 # Create a test for that.
 
-    def string_to_dictionary(self, stuff):
+    def string_to_dictionary(self, stfvuff):
         self.stuff = stuff
         stuff_dic = {}
         for letter in stuff:
@@ -74,5 +74,12 @@ class Apple:
                 stuff_dic[letter] += 1
         return stuff_dic
 
-x = Apple("red")
-print(x.string_to_dictionary("tokyo"))
+# Write a function that computes a member of the fibonacci sequence by a given index
+# Create tests that covers all types of input (like in the previous workshop exercise)
+
+    def fibonacci(self, n):
+        self.n = n
+        if self.n < 2:
+            return self.n
+        else:
+            return self.fibonacci(n-1) + self.fibonacci(n-2)
