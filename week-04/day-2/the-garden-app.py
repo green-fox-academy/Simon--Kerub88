@@ -12,7 +12,27 @@ class Garden:
 
     def watering(self, amount = 40):
         self.amount = amount
+        for element in self.list_tree:
+            if element.current_water <= 10:
+                element.current_water += (amount // plants_check()) * 0.4
+        for element in self.list_flowers:
+            if element.current_water <= 5:
+                element.current_water += (amount // plants_check()) * 0.75
+
+    def plants_check(self):
+        dry_plants = 0
+        for element in self.list_tree:
+            if element.current_water <= 10:
+                dry_plants += 1
+        for element in self.list_flowers:
+            if element.current_water <= 5:
+                dry_plants += 1
+        return dry_plants
+
+    def report_status(self):
         
+
+
 
 
 
@@ -32,5 +52,12 @@ class Flower(Garden):
 
 the_garden = Garden()
 flower1 = Flower("blue")
+flower2 = Flower("yellow")
+tree1 = Tree("purple")
+tree2 = Tree("orange")
 the_garden.add_flower(flower1)
-print(the_garden.list_flowers[0].current_water)
+the_garden.add_flower(flower2)
+the_garden.add_tree(tree1)
+the_garden.add_tree(tree2)
+the_garden.plants_check()
+print()
