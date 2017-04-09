@@ -1,18 +1,45 @@
-class Aircraft:
-
-    def __init__(self, max_ammo = 8, current_ammo = 0, base_damage = 30):
-        self.max_ammo = max_ammo
-        self.current_ammo = current_ammo
-        self.base_damage = base_damage
-
-    def refill(self,):
-        pass
+class Aircraft():
 
     def fight(self):
-        pass
+        return self.current_ammo * self.base_damage
 
     def get_status(self):
-        print("Type: ", ", Ammo: ", self.current_ammo, ", Base Damage: ", self.base_damage, ", All Damage: ", self.base_damage * self.current_ammo)
+        print("Type: ", self.type, ", Ammo: ", self.current_ammo, ", Base Damage: ", self.base_damage, ", All Damage: ", self.base_damage * self.current_ammo)
 
-air1 = Aircraft()
-air1.get_status()
+
+class F16(Aircraft):
+
+    def __init__(self):
+        self.type = "F16"
+        self.max_ammo = 8
+        self.current_ammo = 0
+        self.base_damage = 30
+
+
+class F35(Aircraft):
+
+    def __init__(self):
+        self.type = "F35"
+        self.max_ammo = 12
+        self.current_ammo = 0
+        self.base_damage = 50
+
+
+class Carrier():
+
+    def __init__(self, ammo = 2400):
+        self.ammo = ammo
+        self.health = 3000
+        self.garage = []
+
+    def add_aircraft(self):
+        pass
+
+    def refill(self):
+        self.ammo -= aircraft.max_ammo - aircraft.current_ammo
+        aircraft.current_ammo += aircraft.max_ammo - aircraft.current_ammo
+        return self.ammo, aircraft.current_ammo
+
+airF35 = F35()
+carrier1 = Carrier()
+print(carrier1.ammo)
