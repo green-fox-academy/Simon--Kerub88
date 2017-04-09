@@ -70,6 +70,7 @@ the_garden.add_flower(flower1)
 the_garden.add_flower(flower2)
 the_garden.add_tree(tree1)
 the_garden.add_tree(tree2)
+
 the_garden.report_status()
 the_garden.watering()
 the_garden.report_status()
