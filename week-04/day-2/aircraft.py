@@ -14,7 +14,7 @@ class Carrier():
             F35 = Aircraft("F35")
             self.garage.append(F35)
         else:
-            print("I take only F16 or F35")
+            print("You can add exclusively F16 or F35 ")
 
     def fill(self):
         if self.ammo > 0:
@@ -68,7 +68,7 @@ class Aircraft(Carrier):
             self.current_ammo = 0
             self.base_damage = 50
         else:
-            return "You can add exclusively F16 or F35 "
+            print("You can add exclusively F16 or F35 ")
 
     def refill(self, ammo_storage = 300):
         self.ammo_storage = ammo_storage
