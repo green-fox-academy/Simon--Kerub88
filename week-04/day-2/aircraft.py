@@ -17,10 +17,22 @@ class Carrier():
             print("I take only F16 or F35")
 
     def fill(self):
-        if self.ammo >= 0:
-            for plane in self.garage:
-                plane.current_ammo += plane.max_ammo - plane.current_ammo
-                self.ammo -= plane.current_ammo
+        if self.ammo > 0:
+            if self.ammo / len(self.garage) < 12:
+                for plane in self.garage:
+                    while plane.plane_type == "F35" and plane.current_ammo == 0:
+                        if self.ammo > plane.max_ammo - plane.current_ammo:
+                            plane.current_ammo += plane.max_ammo - plane.current_ammo
+                            self.ammo -= plane.current_ammo
+                        else:
+                            return "Out of ammo"
+            if self.ammo / len(self.garage) > 0:
+                for plane in self.garage:
+                    if self.ammo > plane.max_ammo - plane.current_ammo:
+                        plane.current_ammo += plane.max_ammo - plane.current_ammo
+                        self.ammo -= plane.current_ammo
+                    else:
+                        return "Out of ammo"
         else:
             return "The carrier is out of ammo"
 
@@ -47,6 +59,8 @@ class Aircraft(Carrier):
             self.max_ammo = 12
             self.current_ammo = 0
             self.base_damage = 50
+        else:
+            return "Only F16 or F35 "
 
     def refill(self, ammo_storage = 300):
         self.ammo_storage = ammo_storage
@@ -63,7 +77,7 @@ class Aircraft(Carrier):
     def get_status(self):
         print("Type: ", self.plane_type, ", Ammo: ", self.current_ammo, ", Base Damage: ", self.base_damage, ", All Damage: ", self.base_damage * self.current_ammo)
 
-battlestar = Carrier()
+battlestar = Carrier(50)
 battlestar.add_aircraft("F16")
 battlestar.add_aircraft("F16")
 battlestar.add_aircraft("F16")
