@@ -22,29 +22,37 @@ class Carrier():
                 for plane in self.garage:
                     while plane.plane_type == "F35" and plane.current_ammo == 0:
                         if self.ammo > plane.max_ammo - plane.current_ammo:
-                            plane.current_ammo += plane.max_ammo - plane.current_ammo
-                            self.ammo -= plane.current_ammo
+                            self.ammo = plane.refill(self.ammo)
                         else:
-                            return "Out of ammo"
+                            return "\nThe carrier is out of ammo \n"
             if self.ammo / len(self.garage) > 0:
                 for plane in self.garage:
                     if self.ammo > plane.max_ammo - plane.current_ammo:
-                        plane.current_ammo += plane.max_ammo - plane.current_ammo
-                        self.ammo -= plane.current_ammo
+                        self.ammo = plane.refill(self.ammo)
                     else:
-                        return "Out of ammo"
+                        return "\nThe carrier is out of ammo \n"
         else:
-            return "The carrier is out of ammo"
+            return "\nThe carrier is out of ammo \n"
 
 
     def carrier_status(self):
+        if self.health <= 0:
+            print("It's dead Jim :(")
+        else:
+            damage = 0
+            for plane in self.garage:
+                damage += plane.current_ammo * plane.base_damage
+            print("Aircraft count: ", str(len(self.garage)) + ", Ammo Storage: ", str(self.ammo) + ", Total damage: " + str(damage), "\n" + "Aircrafts:")
+            for plane in self.garage:
+                plane.get_status()
+
+    def fight(self, enemy):
+        self.enemy = enemy
         damage = 0
         for plane in self.garage:
             damage += plane.current_ammo * plane.base_damage
-        print("Aircraft count: ", str(len(self.garage)) + ", Ammor Storage: ", str(self.ammo) + ", Total damage: " + str(damage), "\n" + "Aircrafts:")
-        for plane in self.garage:
-            plane.get_status()
-
+        self.enemy.health = self.enemy.health - damage
+        return self.enemy.health
 
 
 class Aircraft(Carrier):
@@ -60,7 +68,7 @@ class Aircraft(Carrier):
             self.current_ammo = 0
             self.base_damage = 50
         else:
-            return "Only F16 or F35 "
+            return "You can add exclusively F16 or F35 "
 
     def refill(self, ammo_storage = 300):
         self.ammo_storage = ammo_storage
@@ -77,7 +85,7 @@ class Aircraft(Carrier):
     def get_status(self):
         print("Type: ", self.plane_type, ", Ammo: ", self.current_ammo, ", Base Damage: ", self.base_damage, ", All Damage: ", self.base_damage * self.current_ammo)
 
-battlestar = Carrier(50)
+battlestar = Carrier(300)
 battlestar.add_aircraft("F16")
 battlestar.add_aircraft("F16")
 battlestar.add_aircraft("F16")
@@ -85,14 +93,7 @@ battlestar.add_aircraft("F35")
 battlestar.add_aircraft("F35")
 battlestar.add_aircraft("F35")
 print(battlestar.carrier_status())
-battlestar.fill()
+print(battlestar.fill())
 print(battlestar.carrier_status())
-
-
-
-# air1_F16 = Aircraft()
-# air1_F16.get_status()
-# air1_F16.refill()
-# air1_F16.get_status()
-# print(air1_F16.fight())
-# air1_F16.get_status()
+cylon_baseship = Carrier(300)
+print(battlestar.fight(cylon_baseship))
