@@ -34,7 +34,6 @@ class Carrier():
         else:
             return "\nThe carrier is out of ammo \n"
 
-
     def carrier_status(self):
         if self.health <= 0:
             print("It's dead Jim :(")
@@ -50,7 +49,7 @@ class Carrier():
         self.enemy = enemy
         damage = 0
         for plane in self.garage:
-            damage += plane.current_ammo * plane.base_damage
+            damage += plane.fight()
         self.enemy.health = self.enemy.health - damage
         return self.enemy.health
 
@@ -80,7 +79,7 @@ class Aircraft(Carrier):
     def fight(self):
         current_damage = self.current_ammo * self.base_damage
         self.current_ammo = 0
-        return current_damage, self.current_ammo
+        return current_damage
 
     def get_status(self):
         print("Type: ", self.plane_type, ", Ammo: ", self.current_ammo, ", Base Damage: ", self.base_damage, ", All Damage: ", self.base_damage * self.current_ammo)
@@ -96,4 +95,5 @@ print(battlestar.carrier_status())
 print(battlestar.fill())
 print(battlestar.carrier_status())
 cylon_baseship = Carrier(300)
-print(battlestar.fight(cylon_baseship))
+print("\nEnemy carrier status:", battlestar.fight(cylon_baseship), "health \n")
+print(battlestar.carrier_status())
