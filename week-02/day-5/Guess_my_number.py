@@ -72,7 +72,7 @@ while (not found) and tries > 0:
         found = True
         print("**************************************\n"
         "\n"
-        "YOU WON! That was the numbe I guessed\n"
+        "YOU WON! That was the number I guessed\n"
          "\n"
         "**************************************")
 
