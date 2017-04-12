@@ -15,59 +15,43 @@ canvas.pack()
         # canvas.pack()
         # canvas.bind("<KeyPress>", on_key_press)
 
-    # def on_key_press(self, e):
-    #     if e.keycode == 8320768 or e.keycode == 852087:
-    #         if hero.character_y > 0:
-    #             hero.character_y = hero.character_y - 72
-    #         else:
-    #             hero.character_y = hero.character_y
-    #
-    #     elif e.keycode == 8255233:
-    #         if hero.character_y < 720:
-    #             hero.character_y = hero.character_y + 72
-    #         else:
-    #             hero.character_y = hero.character_y
-
 class Map():
 
     def __init__(self):
-        # self.root = Tk()
-        # self.height = height
-        # self.width = width
-
-        # self.canvas = Canvas(self.root, width = self.width, height = self.height)
-        # self.canvas.pack()
         self.draw_tiles()
-        # # Tell the canvas that we prepared a function that can deal with the key press events
-        # self.canvas.bind("<KeyPress>", on_key_press)
-        # # Select the canvas to be in focused so it actually recieves the key hittings
-        # self.canvas.focus_set()
-        # self.root.mainloop()
+
 
     def draw_tiles(self):
-        dungeon_map = [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+        self.dungeon_map = [
+        [0, 0, 1, 0, 1, 0, 1, 0, 0, 0,],
+        [0, 0, 1, 0, 1, 0, 0, 0, 0, 0,],
+        [0, 0, 1, 0, 1, 0, 1, 0, 0, 0,],
+        [0, 0, 0, 0, 1, 0, 1, 0, 0, 0,],
+        [1, 1, 1, 0, 0, 0, 1, 0, 0, 0,],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0,],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0,],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0,],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0,],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
         ]
 
         self.floor_img = PhotoImage(file="floor.gif")
         self.wall_img = PhotoImage(file="wall.gif")
 
-        for x in range(len(dungeon_map)):
-            for y in range(len(dungeon_map[x])):
-                if dungeon_map[x][y] == 0:
+        for y in range(len(self.dungeon_map)):
+            for x in range(len(self.dungeon_map[y])):
+                if self.dungeon_map[y][x] == 0:
                     canvas.create_image(x * 72, y * 72, anchor = NW, image = self.floor_img)
-                elif dungeon_map[cell][row] == 1:
+                elif self.dungeon_map[y][x] == 1:
                     canvas.create_image(x * 72, y * 72, anchor = NW, image = self.wall_img)
 
+        wall = self.dungeon_map[x][y] == 1
+
+class Tiles(Map):
+
+    def wall(self):
+        self.wall_img = PhotoImage(file="wall.gif")
+        canvas.create_image(x * 72, y * 72, anchor = NW, image = self.wall_img)
 
 class Character():
 
@@ -80,8 +64,6 @@ class Hero(Character):
 
     def __init__(self):
         super().__init__()
-        # self.character_x = 1
-        # self.character_y = 1
         self.hero_down = PhotoImage(file = 'hero-down.gif')
         self.hero_left = PhotoImage(file = 'hero-down.gif')
         self.hero_right = PhotoImage(file = 'hero-down.gif')
@@ -92,33 +74,31 @@ class Hero(Character):
         canvas.delete(self.hero)
         self.character_x = x
         self.character_y = y
-        self.hero = canvas.create_image(self.character_x * self.tile_size, self.character_y * self.tile_size, image = self.hero_down, anchor = NW)
+        self.hero = canvas.create_image(self.character_x * self.tile_size, self.character_y * self.tile_size, image = self.hero_up, anchor = NW)
+
+    def hero_move(self, x, y, direction):
+        if 0 <= x <= 9 and 0 <= y <= 9:
+            if dungeon.dungeon_map[y][x] == 0:
+                canvas.delete(self.hero)
+                self.character_y = y
+                self.character_x = x
+                self.hero = canvas.create_image(self.character_x * self.tile_size, self.character_y * self.tile_size, image = direction, anchor = NW)
 
 hero = Hero()
 hero.drawn_hero()
 
 def on_key_press(e):
-    print(hero.character_y)
     if e.keycode == 8320768 or e.keycode == 852087:
-        if hero.character_y - 1 >= 0:
-            hero.character_y = hero.character_y - 1
-            hero.drawn_hero(hero.character_x, hero.character_y)
+        hero.hero_move(hero.character_x, hero.character_y - 1, hero.hero_up)
 
     elif e.keycode == 8255233 or e.keycode == 65651:
-        if hero.character_y + 1 <= 9:
-            hero.character_y = hero.character_y + 1
-            hero.drawn_hero(hero.character_x, hero.character_y)
+        hero.hero_move(hero.character_x, hero.character_y + 1, hero.hero_down)
 
     elif e.keycode == 8189699 or e.keycode == 131172:
-        if hero.character_x + 1 <= 9:
-            hero.character_x = hero.character_x + 1
-            hero.drawn_hero(hero.character_x, hero.character_y)
-
+        hero.hero_move(hero.character_x + 1, hero.character_y, hero.hero_right)
 
     elif e.keycode == 8124162 or e.keycode == 97:
-        if hero.character_x - 1 >= 0:
-            hero.character_x = hero.character_x - 1
-            hero.drawn_hero(hero.character_x, hero.character_y)
+        hero.hero_move(hero.character_x - 1, hero.character_y, hero.hero_left)
 
 
 # Tell the canvas that we prepared a function that can deal with the key press events
