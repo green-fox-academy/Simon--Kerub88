@@ -9,8 +9,6 @@ class Map():
         self.canvas = Canvas(self.root, width=self.width, height=self.height)
         self.canvas.pack()
         self.canvas.bind("<KeyPress>", on_key_press)
-        self.testBoxX = 0 # initital choordinates
-        self.testBoxY = 0
 
         self.draw_tiles()
         self.root.mainloop()
@@ -65,4 +63,4 @@ class Map():
                 box.testBoxX = box.testBoxX
 
 
-game = GameLogic(720, 720)
+game = Map(720, 720)
