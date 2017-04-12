@@ -98,26 +98,27 @@ hero = Hero()
 hero.drawn_hero()
 
 def on_key_press(e):
+    print(hero.character_y)
     if e.keycode == 8320768 or e.keycode == 852087:
-        if hero.character_y >= 0:
+        if hero.character_y - 1 >= 0:
             hero.character_y = hero.character_y - 1
             hero.drawn_hero(hero.character_x, hero.character_y)
-        else:
-            hero.character_y = hero.character_y
 
-    elif e.keycode == 8255233:
-        if hero.character_y < 720:
+    elif e.keycode == 8255233 or e.keycode == 65651:
+        if hero.character_y + 1 <= 9:
             hero.character_y = hero.character_y + 1
             hero.drawn_hero(hero.character_x, hero.character_y)
-        else:
-            hero.character_y = hero.character_y
-    # elif e.keycode == 8255233:
-    #     hero.character_y = hero.character_y + 1
-    #     hero.drawn_hero(hero.character_x, hero.character_y)
-    #
-    # elif e.keycode == 8255233:
-    #     hero.character_y = hero.character_y + 1
-    #     hero.drawn_hero(hero.character_x, hero.character_y)
+
+    elif e.keycode == 8189699 or e.keycode == 131172:
+        if hero.character_x + 1 <= 9:
+            hero.character_x = hero.character_x + 1
+            hero.drawn_hero(hero.character_x, hero.character_y)
+
+
+    elif e.keycode == 8124162 or e.keycode == 97:
+        if hero.character_x - 1 >= 0:
+            hero.character_x = hero.character_x - 1
+            hero.drawn_hero(hero.character_x, hero.character_y)
 
 
 # Tell the canvas that we prepared a function that can deal with the key press events
