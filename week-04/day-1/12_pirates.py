@@ -67,9 +67,12 @@
 
 # The Pirate Ship
 
+import random
+
 class Pirate():
 
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.rum_meter = 0
         self.alive = True
 
@@ -93,13 +96,29 @@ class Pirate():
     def die(self):
         self.alive = False
 
-    def brawl(self):
-        pass
+    def brawl(self, pirate_a, pirate_b):
+        if pirate_a.alive == True and pirate_b.alive == True:
+            self.pirate_a = pirate_a
+            self.pirate_b = pirate_b
+            brawl_outcome = random.randrange(1, 4)
+            if brawl_outcome == 1:
+                pirate_a.die()
+                return str(pirate_a.name) + " is dead, " + str(pirate_b.name) + " is the winner"
+            if brawl_outcome == 2:
+                pirate_b.die()
+                return str(pirate_b.name) + " is dead, " + str(pirate_a.name) + " is the winner"
+            else:
+                return "They both passed out"
+        else:
+            return "Only alive pirates can brawl"
 
-pirate1 = Pirate()
+
+
+pirate1 = Pirate("Jack")
 pirate1.drink_some_rum(2)
 print(pirate1.hows_it_going_mate())
 pirate1.drink_some_rum(3)
 print(pirate1.hows_it_going_mate())
-pirate1.die()
+pirate2 = Pirate("Isaac")
+print(pirate1.brawl(pirate1, pirate2))
 print(pirate1.hows_it_going_mate())
