@@ -65,16 +65,18 @@
     # brawl(x) - where pirate fights another pirate (if that other pirate is alive) and there's a 1/3 chance, 1 dies, the other dies or they both pass out.
     # Add a parrot.
 
-# The Pirate Ship
+# ////////////////////////////////////////////////////////////////////////////////////
+
 
 import random
 
 class Pirate():
 
-    def __init__(self, name):
+    def __init__(self, name = "Sea_Dog"):
         self.name = name
         self.rum_meter = 0
         self.alive = True
+        self.captain = False
 
     def drink_some_rum(self, rum = 1):
         if self.alive == True:
@@ -112,13 +114,50 @@ class Pirate():
         else:
             return "Only alive pirates can brawl"
 
+# The Pirate Ship
+# The Ship stores Pirate-s instances in a list as the crew and has one captain who is also a Pirate.
+# When a ship is created it doesn't have a crew or a captain.
+# The ship can be filled with pirates and a captain via fill_ship() method.
+# Filling the ship with a captain and random number of pirates.
+# Ships should be represented in a nice way on command line including information about
+# captains consumed rum, state (passed out / died)
+# number of alive pirates in the crew
+# Ships should have a method to battle other ships: ship.battle(otherShip)
+# should return true if the actual ship (this) wins
+# the ship should win if its calculated score is higher
+# calculate score: Number of Alive pirates in the crew - Number of consumed rum by the captain
+# The loser crew has a random number of losses (deaths).
+# The winner captain and crew has a party, including a random number of rum :)
+
+class Ship():
+
+    def __init__(self, ship_name):
+        self.ship_name = ship_name
+        self.crew_list = []
+
+    def fill_ship(self, ship_captain):
+        ship_captain = (Pirate)
+        ship_captain.captain = True
+        self.crew_list.append(ship_captain)
+        number_of_pirates = random.randrange(5, 21)
+        while number_of_pirates > 0:
+            Sea_Dog = Pirate()
+            self.crew_list.append(Sea_Dog)
+            number_of_pirates -= 1
 
 
-pirate1 = Pirate("Jack")
-pirate1.drink_some_rum(2)
-print(pirate1.hows_it_going_mate())
-pirate1.drink_some_rum(3)
-print(pirate1.hows_it_going_mate())
-pirate2 = Pirate("Isaac")
-print(pirate1.brawl(pirate1, pirate2))
-print(pirate1.hows_it_going_mate())
+ship1 = Ship("Black_Pearl")
+ship1.fill_ship("Black_Beard")
+
+for i in ship1.crew_list:
+    print(i)
+
+
+# pirate1 = Pirate("Jack")
+# pirate1.drink_some_rum(2)
+# print(pirate1.hows_it_going_mate())
+# pirate1.drink_some_rum(3)
+# print(pirate1.hows_it_going_mate())
+# pirate2 = Pirate("Isaac")
+# print(pirate1.brawl(pirate1, pirate2))
+# print(pirate1.hows_it_going_mate())
