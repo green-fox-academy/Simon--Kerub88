@@ -88,9 +88,9 @@ class Pirate():
             else:
                 return "Arghh, I'ma Pirate. How d'ya d'ink its goin?"
         else:
-            print("He`s dead")
+            return "He`s dead"
 
-    def die(self, pirate):
+    def die(self):
         self.alive = False
 
     def brawl(self):
@@ -100,4 +100,6 @@ pirate1 = Pirate()
 pirate1.drink_some_rum(2)
 print(pirate1.hows_it_going_mate())
 pirate1.drink_some_rum(3)
+print(pirate1.hows_it_going_mate())
+pirate1.die()
 print(pirate1.hows_it_going_mate())
