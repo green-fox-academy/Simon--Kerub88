@@ -141,9 +141,9 @@ class Ship(Pirate):
 
     def fill_ship(self, captain_name):
         if self.available_captain == 0:
-            ship_captain = Pirate(str(captain_name))
-            ship_captain.captain = True
-            self.crew_list.append(ship_captain)
+            self.ship_captain = Pirate(str(captain_name))
+            self.ship_captain.captain = True
+            self.crew_list.append(self.ship_captain)
             self.available_captain += 1
         number_of_pirates = random.randrange(5, 21)
         while number_of_pirates > 0:
@@ -151,23 +151,75 @@ class Ship(Pirate):
             self.crew_list.append(Sea_Dog)
             number_of_pirates -= 1
 
+    def alive_crew_list(self):
+        alive_pirate = 0
+        for pirate in self.crew_list:
+            if pirate.alive == True:
+                alive_pirate += 1
+        return alive_pirate
+
+        # alive_pirate = 0
+        # full_list = len(self.crew_list)
+        # while full_list > 0:
+        #     for pirate in self.crew_list:
+        #         if pirate.alive == True:
+        #             alive_pirate += 1
+        #             full_list -= 1
+        # return alive_pirate
+
     def getstatus(self):
-        print(
+        print("\n" +
         "*"*(11 + len(self.ship_name)), "\n"
         "Ship name: " + str(self.ship_name) + "\n" +
         "*"*(11 + len(self.ship_name)), "\n" +
-        "Crew Members: " + str(len(self.crew_list)))
-        self.crew_list[0].get_status()
+        "Crew Members: " + str(self.alive_crew_list()) + "\n" +
+        str(self.crew_list[0].get_status()))
 
     def battle(self, enemy_ship):
         self.enemy_ship = enemy_ship
-        if self.crew_list
+        attacking_ship = self.alive_crew_list() - self.ship_captain.rum_meter
+        defending_ship = enemy_ship.alive_crew_list() - enemy_ship.ship_captain.rum_meter
+        if attacking_ship > defending_ship:
+            crew_casualties = random.randrange(5, enemy_ship.alive_crew_list())
+            while crew_casualties > 0:
+                for pirates in enemy_ship.crew_list:
+                    if pirates.alive:
+                        pirates.alive = False
+                        crew_casualties -= 1
+                        break
+            captain_party_rum = random.randrange(1, 3)
+            self.ship_captain.drink_some_rum()
+            return False
+        elif attacking_ship < defending_ship:
+            crew_casualties = random.randrange(5, self.alive_crew_list())
+            while crew_casualties > 0:
+                for pirates in self.crew_list:
+                    if pirates.alive:
+                        pirates.alive = False
+                        crew_casualties -= 1
+                        break
+            captain_party_rum = random.randrange(1, 3)
+            enemy_ship.ship_captain.drink_some_rum()
+            return True
 
 
 ship1 = Ship("Black Pearl")
 ship1.fill_ship("Black Beard")
-ship1.fill_ship("New Captain")
 ship1.getstatus()
+ship2 = Ship("Cursed Vagon")
+ship2.fill_ship("Cursed Captain")
+ship2.getstatus()
+print(ship1.battle(ship2))
+ship1.getstatus()
+ship2.getstatus()
+print(ship1.alive_crew_list())
+
+
+
+# ship1.crew_list[3].drink_some_rum()
+# ship1.crew_list[3].get_status()
+
+
 
 
 # pirate1 = Pirate("Jack")
