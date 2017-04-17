@@ -98,6 +98,9 @@ class Pirate():
     def die(self):
         self.alive = False
 
+    def get_status(self):
+        print("Captain status: " + str(self.captain) + ", Name: " + str(self.name) + ", who drunk " + str(self.rum_meter) + " rum and Alive Status is: " + str(self.alive))
+
     def brawl(self, pirate_a, pirate_b):
         if pirate_a.alive == True and pirate_b.alive == True:
             self.pirate_a = pirate_a
@@ -129,31 +132,46 @@ class Pirate():
 # The loser crew has a random number of losses (deaths).
 # The winner captain and crew has a party, including a random number of rum :)
 
-class Ship():
+class Ship(Pirate):
 
     def __init__(self, ship_name):
         self.ship_name = ship_name
         self.crew_list = []
+        self.available_captain = 0
 
-    def fill_ship(self, ship_captain):
-        ship_captain = (Pirate)
-        ship_captain.captain = True
-        self.crew_list.append(ship_captain)
+    def fill_ship(self, captain_name):
+        if self.available_captain == 0:
+            ship_captain = Pirate(str(captain_name))
+            ship_captain.captain = True
+            self.crew_list.append(ship_captain)
+            self.available_captain += 1
         number_of_pirates = random.randrange(5, 21)
         while number_of_pirates > 0:
             Sea_Dog = Pirate()
             self.crew_list.append(Sea_Dog)
             number_of_pirates -= 1
 
+    def getstatus(self):
+        print(
+        "*"*(11 + len(self.ship_name)), "\n"
+        "Ship name: " + str(self.ship_name) + "\n" +
+        "*"*(11 + len(self.ship_name)), "\n" +
+        "Crew Members: " + str(len(self.crew_list)))
+        self.crew_list[0].get_status()
 
-ship1 = Ship("Black_Pearl")
-ship1.fill_ship("Black_Beard")
+    def battle(self, enemy_ship):
+        self.enemy_ship = enemy_ship
+        if self.crew_list
 
-for i in ship1.crew_list:
-    print(i)
+
+ship1 = Ship("Black Pearl")
+ship1.fill_ship("Black Beard")
+ship1.fill_ship("New Captain")
+ship1.getstatus()
 
 
 # pirate1 = Pirate("Jack")
+# print(pirate1.get_status())
 # pirate1.drink_some_rum(2)
 # print(pirate1.hows_it_going_mate())
 # pirate1.drink_some_rum(3)
