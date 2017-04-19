@@ -1,0 +1,32 @@
+body {
+    background: #eee;
+    color: #eee;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 960px;
+}
+
+.container {
+    display: flex;
+
+}
+
+.container div {
+    height: 100px;
+    min-width: 100px;
+    float: left;
+}
+
+.item_green {
+    background: #51d400;
+}
+
+.item_yellow {
+    background: #ffd62a;
+}
+
+.item_purple {
+    background: #b02aff;
+}
