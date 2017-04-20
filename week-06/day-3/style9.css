@@ -1,0 +1,60 @@
+h1 {
+    margin: 0px;
+}
+
+.wrapper {
+    width: 660px;
+    background: #b02aff;
+    height: 40px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container {
+    height: 22px;
+    width: 100%;
+    max-width: 300px;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+
+}
+
+.nav {
+    list-style: none;
+    background: #2aeaff;
+    width: 40px;
+    margin-left: 4%;
+}
+
+.one {
+    flex-grow: 6;
+}
+.two {
+    flex-grow: 4;
+}
+
+.three {
+    flex-grow: 5;
+}
+
+main {
+    width: 660px;
+    height: 400px;
+    display: flex;
+}
+
+.hq {
+    width: 440px;
+    height: 100%;
+    background: #ffd62a;
+}
+
+.side {
+    width: 220px;
+    height: 100%;
+    background: #51d400;
+    justify-content: flex-end;
+}

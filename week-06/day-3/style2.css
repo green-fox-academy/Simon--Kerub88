@@ -1,0 +1,34 @@
+body {
+    background: #eee;
+    color: #eee;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+
+}
+
+.container div {
+    height: 100px;
+}
+
+.item_green {
+    background: #51d400;
+    flex-grow: 1;
+}
+
+.item_yellow {
+    background: #ffd62a;
+    flex-grow: 2;
+}
+
+.item_purple {
+    background: #b02aff;
+    flex-grow: 1;
+}
