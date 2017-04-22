@@ -1,5 +1,6 @@
-h1 {
-    margin: 0px;
+section {
+    margin: auto;
+    width: 660px;
 }
 
 .wrapper {
