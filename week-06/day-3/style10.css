@@ -1,7 +1,56 @@
-section {
-    width: 660px;
-    margin: 0 auto 0 auto;
+body {
+    margin: 0px;
 }
+
+section {
+    width: 540px;
+    height: 1200px;
+    margin: auto;
+    background: #e8ecf2;
+}
+
 header {
+    height: 100px;
     background: #00ffff;
+
+}
+
+main {
+    height: 500px;
+    display: flex;
+}
+
+div {
+    flex-basis: 20%;
+}
+
+.left {
+    background: #fea500;
+}
+
+.middle {
+    background: #fe0000;
+    flex-basis: 60%;
+    margin: 0 20px;
+    position: relative;
+}
+
+.right {
+    background: #81007f;
+}
+
+p {
+    height: 50px;
+    width: 50px;
+    background: black;
+    position: absolute;
+    margin: 0;
+    left: 79%;
+    top: 87%;
+}
+
+footer {
+    background: blue;
+    width: 100%;
+    height: 100px;
 }
