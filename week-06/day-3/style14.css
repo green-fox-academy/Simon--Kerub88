@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #b02aff;
+    height: 76px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.container__header_nav {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    max-width: 670px;
+}
+
+.header_nav {
+    background: #2AEAFF;
+    margin: 22px 14px 22px 0;
+    padding: 1% 1.5%;
+}
