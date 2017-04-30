@@ -25,3 +25,45 @@ header {
     margin: 22px 14px 22px 0;
     padding: 1% 1.5%;
 }
+
+section {
+    max-width: 670px;
+    margin: 0 auto;
+}
+
+main {
+    margin: 76px 8% 0;
+}
+
+.container__main {
+    max-width: 670px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+}
+
+.content {
+    background: #51d400;
+    /*margin: 1% 1% 0 0;*/
+    flex-basis: 50%;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+
+.content--image {
+    background: #51d400;
+    /*margin: 1% 1% 0 0;*/
+    flex-basis: 25%;
+    border: 5px solid white;
+    box-sizing: border-box;
+}
+
+.images {
+    background: #e90020;
+    /*width: 107px;
+    height: 152px;*/
+}
+
+footer {
+    flex-basis: 100%;
+}
