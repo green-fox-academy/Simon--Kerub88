@@ -21,7 +21,8 @@ console.log(d / 5);
 
 var e = 8;
 // what's the cube of e's value?
-console.log(e * e);
+e = Math.pow(e, 3)
+console.log(e);
 
 
 var f1 = 123;
