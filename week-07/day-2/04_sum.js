@@ -3,12 +3,12 @@
 // - The function should return the result
 
 function sum(number) {
-    sum = 0
+    var sum = 0;
     if (typeof(number) === 'number') {
 
         for (var i = 0; i < number; i++) {
 
-            sum += i
+            sum += i;
         }
 
         return sum
