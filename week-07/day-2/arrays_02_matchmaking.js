@@ -17,7 +17,7 @@ function matchmaking(girls, boys) {
     }
     for (var i = 0; i < longList.length; i++) {
         if (i % 2 != 0) {
-            longList.splice(i, 0, shortList.shift())
+            longList.splice(i, 0, shortList.shift()) // cut the 1. element of shortList and insert to longList current index
         }
     }
     order = longList
