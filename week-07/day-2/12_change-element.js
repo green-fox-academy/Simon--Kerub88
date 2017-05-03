@@ -6,7 +6,11 @@
 var s = [1, 2, 3, 8, 5, 6]
 
 var s = s.map(function(num) {
-    return num / 2
+    if (num != 8) {
+    return num
+} else {
+    return 4
+}
 })
 
-console.log(s[3])
+console.log(s)
