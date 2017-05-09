@@ -4,15 +4,16 @@
 // Could you find the appropriate types of the variables?
 // Where can you invocate the function?
 
-amountOfBeer(person);
 
 const person = 2;
 
 function amountOfBeer(person) {
   var i = person;
 
-  for (var i = 0; i <= 4; i++) {
+  for (var i = 0; i < 4; i++) {
     let j = i;
+    console.log('The result is:', i + j);
   }
-  }
-  console.log('The result is:', i + j);
+}
+
+amountOfBeer(person);
