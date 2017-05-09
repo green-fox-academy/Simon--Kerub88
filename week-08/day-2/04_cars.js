@@ -5,7 +5,7 @@
 var volvo = {
   type: "Volvo",
   fuel: 23,
-  consumption: 0.06
+  consumption: 0.06,
   kms: 43000,
   ride: function (km) {
     this.kms += km;
@@ -13,8 +13,9 @@ var volvo = {
   }
 };
 
-
-
+var callCar = volvo.ride.bind(volvo)
+callCar(42);
+console.log(volvo.kms)
 
 
 // 2nd
@@ -24,7 +25,7 @@ var volvo = {
 var ferrari = {
   type: "Ferrari",
   fuel: 0,
-  consumption: 0.12
+  consumption: 0.12,
   kms: 9000,
   ride: function (km) {
     this.kms += km;
@@ -33,10 +34,12 @@ var ferrari = {
 };
 
 function refuel(liters) {
-  this.fuel += liters
+    this.fuel += liters
 }
 
+var refuelVar = (refuel.bind(ferrari))(52); /* A fuel functionba bindeljük a ferrarit így a "this" a ferrari tulajdonságaira mutat, az egészet zárójelbe rakjuk így használható rajta az immedietly invoked function expression (IIFE), vagyis rögtön meghívjuk függvényt az 52-es értékkel. */
 
+console.log(ferrari.fuel)
 
 
 
@@ -48,8 +51,17 @@ function refuel(liters) {
 //  - consunption: number
 // And a method called ride, that takes a parameter celled km,
 // and increments kms with it, then drains the battery based on the consumpltion
+let tesla = {
+    type: "white",
+    battery: 100,
+    kms: 0,
+    consuption: 0.5,
+    ride: function(km) {
+        this.kms += km;
+        this.battery -= km * this.consuption;
 
-
+    }
+};
 
 
 
