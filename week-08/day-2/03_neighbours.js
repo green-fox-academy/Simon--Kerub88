@@ -3,24 +3,24 @@
 // Bela bacsi has free time at 8 o'clock, Bujaki at 9 o'clock, Vilma at 10 o'clock.
 // The program should print the schedule of the teachers.
 
-let isIll = true;
+const isIll = true;
 
 function getDeputy(hour) {
   while (isIll) {
     if (hour === 8) {
-      let deputy = 'Bela bacsi';
-      isIll = false;
-  }
+      var deputy = 'Bela bacsi';
+      let isIll = false;
+    }
     else if (hour === 9) {
-      let deputy = 'Bujaki';
-      isIll = false;
+      var deputy = 'Bujaki';
+      let isIll = false;
     }
     else if (hour === 10) {
-      let deputy = 'Vilma';
-      isIll = false;
+      var deputy = 'Vilma';
+      let isIll = false;
     }
+    return deputy;
   }
-  return deputy;
 }
 
 console.log("At eight:", getDeputy(8));
