@@ -7,10 +7,6 @@
 // which decreases inkAmount by the width
 
 let sharpieConstructor = function(color, width, inkAmount) {
-    // this.color = color;
-    // this.width = width;
-    // this.inkAmount = inkAmount;
-
     let sharpie = {
         color: color,
         width: width,
@@ -21,3 +17,16 @@ let sharpieConstructor = function(color, width, inkAmount) {
 
 let sharpieGreen = sharpieConstructor('green', 0.4, 100);
 console.log(sharpieGreen);
+let sharpieBlue = sharpieConstructor('blue', 0.2, 100);
+console.log(sharpieBlue);
+let sharpieOrange = sharpieConstructor('orange', 0.5, 100);
+console.log(sharpieOrange);
+
+function use() {
+    this.inkAmount -= this.width;
+    console.log(this.color + ' sharpies ink amount is: ' + this.inkAmount);
+}
+
+(use.bind(sharpieGreen))();
+(use.bind(sharpieBlue))();
+(use.bind(sharpieOrange))();
