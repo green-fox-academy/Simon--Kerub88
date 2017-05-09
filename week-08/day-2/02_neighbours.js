@@ -8,12 +8,12 @@
 const person = 2;
 
 function amountOfBeer(person) {
-  var i = person;
+  let i = person;
 
-  for (var i = 0; i < 4; i++) {
-    let j = i;
-    console.log('The result is:', i + j);
+  for (let i = 0; i <= 4; i++) {
+    var j = i;
   }
+  console.log('The result is:', i + j);
 }
 
 amountOfBeer(person);
