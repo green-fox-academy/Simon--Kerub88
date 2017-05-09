@@ -6,10 +6,10 @@
 // Make the code true. Góliát is working now.
 
 const isWorking = true;
-var worker = 'Feri';
+let worker = 'Feri';
 
 if (isWorking) {
-  var worker = 'Goliat';
+  worker = 'Goliat';
 }
 
 console.log('Who is working now?', worker);
