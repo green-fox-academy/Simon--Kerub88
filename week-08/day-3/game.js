@@ -13,75 +13,45 @@
 
 let time = 0;
 let candies = 0;
-let lollipops = 0;
+let lollypops = 0;
 let fastTime = false;
 let candiesSign = document.querySelector('.candies');
+let lollypopsSign = document.querySelector('.lollypops');
 let buttonCreatCandies = document.querySelector('.create-candies');
 let buttonBuyLolypop = document.querySelector('.buy-lollypops');
 let buttonCandyRain = document.querySelector('.candy-machine');
 
 
-let time1Second = function (){
-    if (fastTime === false){
-        time += 1;
-        console.log(time);
-        setTimeout(time1Second2, 1000);
-    } else {
-        fast1Second();
-    }
+let addTime = function(){
+    time += 1;
+    console.log(time);
 }
 
-let time1Second2 = function (){
-    if (fastTime === false){
-        time += 1;
-        console.log(time);
-        setTimeout(time1Second, 1000);
-    } else {
-        fast1Second();
-    }
-}
-setTimeout(time1Second, 1000);
+let timer = setInterval(addTime, 1000);
 
-let fast1Seond = function (){
-    if (fastTime === true){
-        time += 1;
-        console.log(time);
-        setTimeout(fast1Seond2, 100);
-    } else {
-        setTimeout(time1Second, 900)
+let timeSwitcher = function(){
+    if (fastTime === false) {
+        clearInterval(timer);
+        timer = setInterval(addTime, 100);
+        fastTime = true;
+    } else if (fastTime === true) {
+        clearInterval(timer);
+        timer = setInterval(addTime, 1000);
         fastTime = false;
     }
 }
 
-let fast1Seond2 = function (){
-    if (fastTime === true){
-        time += 1;
-        console.log(time);
-        setTimeout(fast1Seond, 100);
-    } else {
-        setTimeout(time1Second, 900)
-        fastTime = false;
-    }
-}
 
 let candieAdd = function(){
     candies += 1;
     candiesSign.innerHTML = candies;
-
 }
 
-let candieRainSwitch = function(){
-    if (fastTime = false) {
-        fastTime = true;
-        console.log('Eddig lassan telt az ido, most felgyorsul. fastTime = ' + fastTime)
-        fast1Seond();
-    } else if (fastTime = true){
-        fastTime = false;
-        console.log('Eddig gyorsan telt az ido, most lelassul. fastTime = ' + fastTime)
-        time1Second();
-    }
+let buyLollypop = function(){
+    lollypops += 1;
+    candies -= 100;
+    lollypopsSign.innerHTML = lollypopsSign.innerHTML + '3C D8 6D DF';
 }
 
-
-buttonCandyRain.addEventListener('click', candieRainSwitch)
+buttonCandyRain.addEventListener('click', timeSwitcher);
 buttonCreatCandies.addEventListener('click', candieAdd);
