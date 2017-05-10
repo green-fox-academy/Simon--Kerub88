@@ -11,29 +11,77 @@
 // Lollypop counter
 //Something something timer
 
-const time = 0;
-let cadnys = 0;
+let time = 0;
+let candies = 0;
 let lollipops = 0;
-let 
+let fastTime = false;
+let candiesSign = document.querySelector('.candies');
+let buttonCreatCandies = document.querySelector('.create-candies');
+let buttonBuyLolypop = document.querySelector('.buy-lollypops');
+let buttonCandyRain = document.querySelector('.candy-machine');
 
 
 let time1Second = function (){
-    time += 1;
-    setTimeout(time1Second2, 1000);
+    if (fastTime === false){
+        time += 1;
+        console.log(time);
+        setTimeout(time1Second2, 1000);
+    } else {
+        fast1Second();
+    }
 }
 
 let time1Second2 = function (){
-    time += 1;
-    setTimeout(time1Second, 1000);
+    if (fastTime === false){
+        time += 1;
+        console.log(time);
+        setTimeout(time1Second, 1000);
+    } else {
+        fast1Second();
+    }
 }
 setTimeout(time1Second, 1000);
 
 let fast1Seond = function (){
-    time += 1;
-    setTimeout(fast1Seond2, 100);
+    if (fastTime === true){
+        time += 1;
+        console.log(time);
+        setTimeout(fast1Seond2, 100);
+    } else {
+        setTimeout(time1Second, 900)
+        fastTime = false;
+    }
 }
 
 let fast1Seond2 = function (){
-    time += 1;
-    setTimeout(fast1Second, 100);
+    if (fastTime === true){
+        time += 1;
+        console.log(time);
+        setTimeout(fast1Seond, 100);
+    } else {
+        setTimeout(time1Second, 900)
+        fastTime = false;
+    }
 }
+
+let candieAdd = function(){
+    candies += 1;
+    candiesSign.innerHTML = candies;
+
+}
+
+let candieRainSwitch = function(){
+    if (fastTime = false) {
+        fastTime = true;
+        console.log('Eddig lassan telt az ido, most felgyorsul. fastTime = ' + fastTime)
+        fast1Seond();
+    } else if (fastTime = true){
+        fastTime = false;
+        console.log('Eddig gyorsan telt az ido, most lelassul. fastTime = ' + fastTime)
+        time1Second();
+    }
+}
+
+
+buttonCandyRain.addEventListener('click', candieRainSwitch)
+buttonCreatCandies.addEventListener('click', candieAdd);
