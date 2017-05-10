@@ -22,3 +22,9 @@ let letterSelector = fruits.map(function(i){
 })
 
 console.log(letterSelector);
+
+// sofisticated solution
+
+let letter = fruits.map(function(x){
+    return x.split('e').length - 1;
+})
