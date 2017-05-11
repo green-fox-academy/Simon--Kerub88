@@ -26,6 +26,21 @@ body {
     background: #7FC6EF;
 }
 
+#search {
+    font-family: 'Arvo', serif;
+    font-size: 5vw;
+    color: black;
+    height: inherit;
+    width: 100%;
+    background: #7FC6EF;
+    margin: 0 6vw;
+    border: 0;
+}
+
+#search:focus {
+  outline: none;
+}
+
 .thumbnail__container {
     margin: 2vw 5vw 1vw;
     display: flex;

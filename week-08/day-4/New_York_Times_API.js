@@ -1,13 +1,15 @@
-// Display gifs of a cute/funny topic using: https://github.com/Giphy/GiphyAPI
+// Search interesting articles on: http://developer.nytimes.com/
 //
-// Search/Find the images in the API
-// Display the list of the first 16 results's static thumbnail
-// If the user clicks on the thumbnail, display the animated GIF
-
-let ImgContainer = document.querySelector('.thumbnail__container');
-let searchInput = document.querySelector('#search');
-console.log(searchInput.value)
-
+// Ask your local mentor for the API key or request your own. Use localhost as the website.
+//
+// Use the Article Search API
+// Find articles about the moon landing by Apollo 11
+// Display the following fields in a list
+// Headline
+// Snippet
+// Publication date
+// Create a permalink to that article
+// API key  83356cc0eafb4a60b8849f18c25ca063
 
 
 var url = 'http://api.giphy.com/v1/gifs/search?q=gandalf&api_key=dc6zaTOxFJmzC&limit=16';
@@ -36,7 +38,6 @@ function buildIMG (responseFromServer){
         liElement.style.backgroundImage = 'url(' + responseFromServer.data[i].images.downsized_still.url + ')';
         liElement.addEventListener('mouseover', function () {
             this.style.backgroundImage = 'url(' + responseFromServer.data[i].images.downsized_medium.url + ')';
-            console.log(ImgContainer.innerHTML);
         })
         liElement.addEventListener('mouseleave', function () {
             this.style.backgroundImage = 'url(' + responseFromServer.data[i].images.downsized_still.url + ')';
@@ -45,13 +46,33 @@ function buildIMG (responseFromServer){
     }
 }
 
-searchInput.addEventListener('keyup', function(e) {
-    if (e.keyCode == 13) { // ENTER key
-        url = 'http://api.giphy.com/v1/gifs/search?q=' + searchInput.value + '&api_key=dc6zaTOxFJmzC&limit=16';
-        console.log(url);
-        ImgContainer.innerHTML = "";
-        console.log(ImgContainer.innerHTML);
-        load(url, function(response){console.log(response)});
-        console.log(searchInput.value)
-    }
-} )
+////////////////////////////////////////////////////////////////////////////////
+
+let ImgContainer = document.querySelector('.thumbnail__container');
+
+var url = {
+        url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+        api-key: "83356cc0eafb4a60b8849f18c25ca063",
+        q: 'moon'
+}
+
+function ajax(url, callback){
+     
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+url += '?' + $.param({
+  'api-key': "83356cc0eafb4a60b8849f18c25ca063",
+  'q': "moon"
+});
+
+$.ajax({
+  url: url,
+  method: 'GET',
+}).done(function(result) {
+  console.log(result);
+}).fail(function(err) {
+  throw err;
+});
