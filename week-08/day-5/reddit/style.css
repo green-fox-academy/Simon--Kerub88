@@ -22,7 +22,7 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: #FFF928;
+    border-bottom: 1px solid;
 }
 
 .post_index_number {
@@ -31,7 +31,6 @@ header {
     min-width: 28px;
     max-width: 32px;
     max-width: 2vw;
-    background: #FFFFFF;
     font-size: 2em;
     align-self: center;
     padding-left: 5px;
@@ -44,7 +43,6 @@ header {
     width: 3.5vw;
     min-width: 30px;
     max-width: 35px;
-    background: #E34897;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -81,7 +79,7 @@ header {
 .post_info_container {
     height: 90%;
     width: 100%;
-    background: #7E29BF;
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -97,7 +95,6 @@ header {
 .post_date_and_name {
     height: 25%;
     width: 100%;
-    padding: 0.2% 0.2%;
     font-size: 0.6em;
 }
 

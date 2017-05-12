@@ -32,10 +32,12 @@ let postCreate = function(post){
 
     var postVoteUp = document.createElement('div');
     postVoteUp.setAttribute('class', 'post_vote_up');
+    postVoteUp.addEventListener('mouseup', upvote);
     postVote.appendChild(postVoteUp);
 
     var postVoteIndex = document.createElement('div');
     postVoteIndex.setAttribute('class', 'post_vote_index');
+    postVoteIndex.innerHTML = post.score;
     postVote.appendChild(postVoteIndex);
 
     var postVoteDown = document.createElement('div');
@@ -70,5 +72,16 @@ let postCreate = function(post){
     postRemove.innerHTML = 'remove';
     postEditContainer.appendChild(postRemove);
 }
-http.open('GET', 'http://192.168.0.125:8080/posts');
+
+var upvote = function(){
+    http.open('PUT', '/posts/post.id/upvote')
+    postVoteUp.style.background = 'url(' + img/upvote.png + ')';
+    }
+//
+// postVoteUp.addEventListener('mouseup', function(){
+//     http.open('PUT', /posts/post.id/upvote)
+//
+// })
+
+http.open('GET', 'https://time-radish.glitch.me/posts');
 http.send();
