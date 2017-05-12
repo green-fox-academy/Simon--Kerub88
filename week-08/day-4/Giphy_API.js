@@ -6,7 +6,12 @@
 
 let ImgContainer = document.querySelector('.thumbnail__container');
 let searchInput = document.querySelector('#search');
-console.log(searchInput.value)
+let searchBar = document.querySelector('#searchbar');
+let searchFunction = document.querySelector('#search');
+const listOfKeyCodes = [81, 86, 69, 82, 84, 89, 91, 89, 85, 73, 79, 80, 219, 91, 221, 65, 83, 68, 70, 91, 71, 72, 74, 75, 76, 186, 222, 220, 192, 90, 88]
+const listOfKeyCodes2 = [67, 66, 78, 77, 188, 190, 191]
+const colorCodes = ['#E389F5', '#15D549', '#FFF928', '#09C6FF', '#FFFFFF'];
+let colorCodesIndex = 0;
 
 
 
@@ -55,3 +60,14 @@ searchInput.addEventListener('keyup', function(e) {
         console.log(searchInput.value)
     }
 } )
+
+searchInput.addEventListener('keyup', function(e) {
+    // console.log(e.keyCode);
+    colorCodesIndex++;
+    if (listOfKeyCodes.includes(e.keyCode) || listOfKeyCodes.includes(e.keyCode)){
+        console.log(e)
+
+        searchBar.style.background = colorCodes[colorCodesIndex % colorCodes.length - 1];
+        searchFunction.style.background = colorCodes[colorCodesIndex % colorCodes.length - 1];
+    }
+})

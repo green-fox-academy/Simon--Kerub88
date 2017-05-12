@@ -1,3 +1,5 @@
+'use strict';
+
 // Search interesting articles on: http://developer.nytimes.com/
 //
 // Ask your local mentor for the API key or request your own. Use localhost as the website.
@@ -11,18 +13,14 @@
 // Create a permalink to that article
 // API key  83356cc0eafb4a60b8849f18c25ca063
 
-
-var url = 'http://api.giphy.com/v1/gifs/search?q=gandalf&api_key=dc6zaTOxFJmzC&limit=16';
-
 function load(url, callback) {
   var xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
+    if (xhr.readyState === 4 && xhr.status === 200) {
       console.log(xhr.response); //Outputs a DOMString by default
       let responseFromServer = JSON.parse(xhr.response);
       callback(responseFromServer);
-      buildIMG(responseFromServer);
     }
   }
 
@@ -50,14 +48,13 @@ function buildIMG (responseFromServer){
 
 let ImgContainer = document.querySelector('.thumbnail__container');
 
-var url = {
-        url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+var url =' https://api.nytimes.com/svc/search/v2/articlesearch.json',
         api-key: "83356cc0eafb4a60b8849f18c25ca063",
         q: 'moon'
 }
 
 function ajax(url, callback){
-     
+
 }
 
 
