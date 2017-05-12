@@ -1,48 +1,70 @@
 'use strict';
 
-// var mainList = document.querySelector('#main_container');
-// var http = new XMLHttpRequest();
-// var postIndex = 1;
-//
-//
-// http.onreadystatechange = function() {
-//     if (http.readyState === 4 && http.status === 200) {
-//         var fullDataArray = JSON.parse(http.response);
-//         console.log(fullDataArray);
-//         for (let i = 0; i < 10; i++) {
-//             var postContainer = document.createElement('div');
-//             postContainer.setAttribute('class', 'post_container');
-//             mainList.appendChild(postContainer);
-//             postIndex++;
-//
-//             // var postIndexNumber = document.createElement('span');
-//             // postIndexNumber
-//
-//
-//
-//
-//             // var container = document.createElement('ul');
-//             // document.body.appendChild(container);
-//             //
-//             // var header = document.createElement('li');
-//             // container.appendChild(header);
-//             // header.innerHTML = fullDataArray.response.docs[i].headline.main;
-//             // header.setAttribute('class', 'main;');
-//             //
-//             // var snippet = document.createElement('li');
-//             // container.appendChild(snippet);
-//             // snippet.innerHTML = fullDataArray.response.docs[i].snippet;
-//             //
-//             // var date = document.createElement('li');
-//             // container.appendChild(date);
-//             // date.innerHTML = fullDataArray.response.docs[i].pub_date;
-//             //
-//             // var linken = document.createElement('a');
-//             // container.appendChild(linken);
-//             // linken.innerHTML = 'Please click here to see the full Article';
-//             // linken.setAttribute('href', fullDataArray.response.docs[i].web_url);
-//         }
-//     }
-// }
-// http.open('GET', 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=moon+landing+by+Apollo+11&api_key=5e046f32d45647abb78492eea38611b2');
-// http.send();
+var mainList = document.querySelector('#main_container');
+var http = new XMLHttpRequest();
+var postIndex = 1;
+
+
+http.onreadystatechange = function() {
+    if (http.readyState === 4 && http.status === 200) {
+        var fullDataArray = JSON.parse(http.response);
+        console.log(fullDataArray);
+        for (let i = 0; i < fullDataArray.posts.length; i++) {
+            postCreate(fullDataArray.posts[i]);
+        }
+    }
+}
+
+let postCreate = function(post){
+    var postContainer = document.createElement('div');
+    postContainer.setAttribute('class', 'post_container');
+    mainList.appendChild(postContainer);
+    postIndex++;
+
+    var postIndexNumber = document.createElement('span');
+    postIndexNumber.setAttribute('class', 'post_index_number');
+    postIndexNumber.innerHTML = postIndex;
+    postContainer.appendChild(postIndexNumber);
+
+    var postVote = document.createElement('div');
+    postVote.setAttribute('class', 'post_vote');
+    postContainer.appendChild(postVote);
+
+    var postVoteUp = document.createElement('div');
+    postVoteUp.setAttribute('class', 'post_vote_up');
+    postVote.appendChild(postVoteUp);
+
+    var postVoteIndex = document.createElement('div');
+    postVoteIndex.setAttribute('class', 'post_vote_index');
+    postVote.appendChild(postVoteIndex);
+
+    var postInfoContainer = document.createElement('div');
+    postInfoContainer.setAttribute('class', 'post_info_container');
+    postContainer.appendChild(postInfoContainer);
+
+    var postTitle = document.createElement('p');
+    postTitle.setAttribute('class', 'post_title');
+    postTitle.innerHTML = post.title;
+    postInfoContainer.appendChild(postTitle);
+
+    var postDateAndName = document.createElement('p');
+    postDateAndName.setAttribute('class', 'post_date_and_name');
+    postDateAndName.innerHTML = '' + ' anonymus';
+    postInfoContainer.appendChild(postDateAndName);
+
+    var postEditContainer = document.createElement('ul');
+    postEditContainer.setAttribute('class', 'post_edit_container');
+    postInfoContainer.appendChild(postEditContainer);
+
+    var postModify = document.createElement('li');
+    postModify.setAttribute('class', 'post_modify');
+    postModify.innerHTML = 'modify';
+    postEditContainer.appendChild(postModify);
+
+    var postRemove = document.createElement('li');
+    postRemove.setAttribute('class', 'post_remove');
+    postRemove.innerHTML = 'remove';
+    postEditContainer.appendChild(postRemove);
+}
+http.open('GET', 'http://10.27.6.196:8080/post');
+http.send();
