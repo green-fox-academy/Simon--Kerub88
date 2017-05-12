@@ -38,6 +38,10 @@ let postCreate = function(post){
     postVoteIndex.setAttribute('class', 'post_vote_index');
     postVote.appendChild(postVoteIndex);
 
+    var postVoteDown = document.createElement('div');
+    postVoteDown.setAttribute('class', 'post_vote_down');
+    postVote.appendChild(postVoteDown);
+
     var postInfoContainer = document.createElement('div');
     postInfoContainer.setAttribute('class', 'post_info_container');
     postContainer.appendChild(postInfoContainer);
@@ -66,5 +70,5 @@ let postCreate = function(post){
     postRemove.innerHTML = 'remove';
     postEditContainer.appendChild(postRemove);
 }
-http.open('GET', 'http://10.27.6.196:8080/post');
+http.open('GET', 'http://192.168.0.125:8080/posts');
 http.send();
