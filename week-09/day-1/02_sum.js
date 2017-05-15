@@ -1,3 +1,4 @@
+'use strict';
 // Create a sum method in your class which has a list of integers as parameter
 // It should return the sum of the elements in the list
 // Follow these steps:
@@ -25,7 +26,7 @@ function sumArrays(array){
         } else {
             return 'One or more element of the array is not a number'
         }
-    } return sum 
+    } return sum
 
 }
 console.log(sumArrays(arrayOfNumbs));
