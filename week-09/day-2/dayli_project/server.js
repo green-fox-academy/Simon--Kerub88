@@ -12,18 +12,15 @@ app.get('/', function(req, res){
 
 app.get('/doubling', function(req, res){
     var received = Math.floor(req.query.input);
-    // var received = Math.floor(received);
     console.log(received)
 
     var result = function() {
         if (received) {
-            console.log('eljut ide, csak kezdeni nem tud mit vele a gyoker')
             return {
                   received: received,
                   result: received * 2
                 }
         } else {
-            console.log('Valamiert ez a szar, error-t akar dobni mert a !received if aktivalodik')
             return {
                 "error": "Please provide an input!"
                 }
