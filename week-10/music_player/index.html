@@ -37,12 +37,23 @@
                             <div class="add_track"></div>
                             <div class="like_track"></div>
                         </header>
-                        <div class="container_songs"></div>
+                        <ul id="playlist">
+                            <li class="current-song"><a href="sample_songs/Fast%20Car%20(Featuring%20Dakota).mp3"><p>Fast Car (Featuring Dakota)</p></a></li>
+                            <li><a href="sample_songs/The Lonely Island and Akon - I Just Had Sex.mp3"><p>The Lonely Island and Akon - I Just Had Sex</p></a></li>
+                            <li><a href="sample_songs/Young Blood - The Naked and Famous.mp3"><p>Young Blood - The Naked and Famous</p></a></li>
+                        </ul>
                     </div>
                 </div>
-                <footer></footer>
+                <footer>
+                    <audio src="" controls id="audioPlayer"></audio>
+                </footer>
             </main>
         </div>
+        <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
 		<script src="music_player.js"></script>
+        <script>
+        // loads the audio player
+        audioPlayer();
+        </script>
 	</body>
 </html>
