@@ -36,15 +36,16 @@ time, mark, audio, video {
     background: #F6E0E0;
     height: 100%;
     width: 100%;
-    margin: 15vh 10vw;
+    margin: 15vh auto;
 }
 
 #music_player {
     height: 70vh;
-    width: 80vw;
+    width: 55vw;
     display: flex;
     flex-direction: column;
     background: #2affdc;
+    margin: auto;
 }
 
 .container__control {
