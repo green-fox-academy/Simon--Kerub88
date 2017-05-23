@@ -77,6 +77,26 @@ time, mark, audio, video {
     flex-direction: column;
 }
 
+.logo {
+    flex-basis: 80%;
+}
+
+.PList_h1_and_creatPList {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+h1 {
+    flex-basis: 85%;
+    background: linear-gradient(115deg, #378cf7, #a8edfd);
+}
+
+.createPList {
+    flex-basis: 15%;
+    background: #6d87e1;
+}
+
 .cover_art {
     flex-basis: 40%;
     background: linear-gradient(115deg, #3e2b6b, #3b7a9a);
@@ -88,14 +108,61 @@ time, mark, audio, video {
     flex-direction: column;
 }
 
+.all_track, .favorites {
+    height: 7vh;
+    border-bottom: 1px solid black;
+}
+
 .right {
     background: linear-gradient(135deg, #00bec7, #0073e8);
     display: flex;
+    flex-direction: column;
 }
+
+header {
+    flex-basis: 20%;
+    display: flex;
+}
+
+.title_box {
+    flex-basis: 84%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #82d2c8, #47b2a3);
+}
+
+.song_title {
+    flex-basis: 50%;
+}
+
+.album_title {
+    flex-basis: 50%;
+    background: linear-gradient(135deg, #684fcd, #3b2a7b);
+}
+
+.add_track {
+    flex-basis: 8%;
+    background: #f5f5f5;
+}
+
+.like_track {
+    flex-basis: 8%;
+    background: #f5f5f5;
+}
+
+
+
 
 footer {
     flex-basis: 12%;
     flex-wrap: wrap;
     background: #51d400;
     position: relative;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    color: #696c6e;
+    padding: 2.2vh 2.6vw;
 }
