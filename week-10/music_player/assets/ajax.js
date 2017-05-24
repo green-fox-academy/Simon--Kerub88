@@ -1,33 +1,31 @@
 var url = 'http://localhost:3000/playlists'
 const playlist = document.querySelector('.playlists_name');
 
-var getPlaylists = function(callback){
+const getPlaylists = function(callback) {
+    const endpoint = 'http://localhost:3000/playlists';
+    callback(endpoint, function(playData){
+        renderPlaylists(playData)
+    })
+}
+
+var ajax = function(url, callback){
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
 
-
     xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-        var tracks = JSON.parse(xhr.response);
-        // for (let i = 0; i < fullDataArray.posts.length; i++) {
-        //     postCreate(fullDataArray.posts[i]);
-        // }
-        callback(tracks)
-    }
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var playData = JSON.parse(xhr.response);
+            callback(playData)
+        }
     }
     xhr.send()
 }
 
-var printData = function(data){
-    console.log(data);
-    renderPlaylists(data);
-}
-
-var renderPlaylists = function(resp) {
-    let output = Mustache.render('{{#tracks}} <li class="list_name"><p>{{title}}</p><span class="list_deleter"></span></li> {{/tracks}}', {tracks:resp});
-    console.log({tracks:resp});
+var renderPlaylists = function(playData) {
+    let output = Mustache.render('{{#tracks}} <li class="list_name"><p>{{title}}</p><span class="list_deleter"></span></li> {{/tracks}}', {tracks:playData});
+    console.log({tracks:playData});
     console.log(output);
     playlist.innerHTML = output;
 }
 
-getPlaylists(printData)
+getPlaylists(ajax)
