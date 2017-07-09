@@ -34,10 +34,12 @@ body {
 }
 
 .container__body {
-    /*background: #F6E0E0;*/
     height: 100%;
     width: 100%;
     margin: 15vh auto;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	border-radius: 60px;
 }
 
 #music_player {
@@ -56,6 +58,9 @@ body {
     flex-basis: 88%;
     display: flex;
     justify-content: flex-start;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	border-radius: 60px;
 }
 
 .player {
@@ -70,7 +75,7 @@ body {
 }
 
 .container__left__top {
-    background: linear-gradient(115deg, #3c4b79, #253050);
+    background: #f5f5f5;
     flex-basis: 30%;
     display: flex;
     justify-content: flex-start;
@@ -84,6 +89,8 @@ body {
 
 .logo {
     flex-basis: 80%;
+	background-image: url('/assets/img/foxplayer.png');
+	background-repeat: no-repeat;
 }
 
 .PList_h1_and_creatPList {
@@ -94,18 +101,23 @@ body {
 
 h1 {
     flex-basis: 85%;
-    background: linear-gradient(115deg, #378cf7, #a8edfd);
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.6vw;
+	color: #555555;
+	padding-left: 2vw;
+	font-weight: bolder;
 }
 
 .createPList {
     flex-basis: 15%;
-    background: #6d87e1;
+	color: #555555;
+	padding-top: 0.8vh;
 }
 
 .cover_art {
     flex-basis: 40%;
     /*background: linear-gradient(115deg, #3e2b6b, #3b7a9a);*/
-	background: url("img/music-placeholder.png");
+	background-image: url("img/music-placeholder.png");
 	background-size: cover;
     background-position: center;
 	background-repeat:no-repeat;
@@ -117,11 +129,6 @@ h1 {
     flex-direction: column;
 }
 
-/*.all_track, .favorites {
-    height: 7vh;
-    border-bottom: 1px solid #614ac1;
-}*/
-
 .list_name {
 	background-position: center;
 	height: 7vh;
@@ -130,10 +137,22 @@ h1 {
 	font-size: 1.1vw;
 	font-weight: 500;
 	color: white;
-	/*padding: 2.3vh 2.6vw;*/
+	display: flex;
 }
+
+.list_name p {
+	flex-basis: 90%;
+}
+
+.list_deleter {
+	flex-basis: 10%;
+	font-weight: 700;
+	font-size: 1.4vw;
+	align-self: center;
+	color: #371c84;
+}
+
 .right {
-    /*background: linear-gradient(135deg, #00bec7, #0073e8);*/
     display: flex;
     flex-direction: column;
 }
@@ -149,28 +168,48 @@ h1 {
     flex-basis: 84%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #82d2c8, #47b2a3);
-}
-
-.song_title {
-    flex-basis: 50%;
 }
 
 .album_title {
     flex-basis: 50%;
-    background: linear-gradient(135deg, #684fcd, #3b2a7b);
+}
+
+h2, h3 {
+	font-family: 'Raleway', sans-serif;
+}
+
+.album_title h2 {
+	font-weight: bolder;
+	font-size: 1.6vw;
+	color: #555555;
+	padding-top: 2vh;
+	padding-left: 2vw;
+}
+
+.artist_name {
+    flex-basis: 50%;
+}
+
+.artist_name h3 {
+	font-weight: 500;
+	font-size: 0.9vw;
+	color: #999999;
+	padding-left: 2vw;
+}
+
+.add_track, .like_track {
+	font-weight: 500;
+	font-size: 1.5vw;
+	color: #555555;
+	align-self: center;
 }
 
 .add_track {
     flex-basis: 8%;
-    background: #f5f5f5;
 }
 
 .like_track {
     flex-basis: 8%;
-    background: url("img/download.svg");
-	background-position: center;
-	background-repeat:no-repeat;
 }
 
 #playlist {
@@ -182,15 +221,31 @@ h1 {
 }
 
 #playlist li {
+	display: flex;
     height: 7vh;
     border-bottom: 1px solid #89d4fb;
+}
+
+#playlist li article {
+	flex-basis: 95%;
+	align-self: center;
+	cursor: default;
+}
+
+#playlist li span {
+	flex-basis: 5%;
+	-webkit-font-smoothing: antialiased;
+	font-weight: 600;
+	cursor: default;
+	align-self: center;
 }
 
 
 #music_player footer {
     flex-basis: 12%;
     flex-wrap: wrap;
-    background: #51d400;
+    /*background: #51d400;*/
+	background: linear-gradient(135deg, #e867c5, #0094d9);
     position: relative;
     display: flex;
 }
@@ -200,9 +255,6 @@ a {
 	text-decoration: none;
 }
 
-a p {
-	-webkit-font-smoothing: antialiased;
-}
 
 p {
     font-family: 'Raleway', sans-serif;
@@ -210,6 +262,22 @@ p {
     font-weight: 500;
 	color: #FFFFFF;
     padding: 2.3vh 2.6vw;
+	cursor: default;
+}
+
+article p {
+	font-weight: 600;
+	max-width: 18vw;
+	-webkit-font-smoothing: antialiased;
+	cursor: default;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	padding: 2.3vh 0 2.3vh 2.6vw;
+}
+
+span p {
+	padding: 2.3vh 1.2vw 2.3vh 0;
 }
 
 .audio {

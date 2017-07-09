@@ -29,7 +29,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/playlists', (req, res) => {
-    console.log('szevasz')
     conn.query('SELECT * FROM Playlist', (err, rows) => {
         if (err) {
             console.log('Error: ', err);
@@ -41,7 +40,6 @@ app.get('/playlists', (req, res) => {
 });
 
 app.get('/playlists-tracks', (req, res) => {
-    console.log('MONDJA MAR VALAMIT!!!')
     conn.query('SELECT * FROM Tracks', (err, rows) => {
         if (err) {
             console.log('Error: ', err);

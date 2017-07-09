@@ -26,16 +26,19 @@ var ajax = function(url, callback){
 }
 
 var renderPlaylists = function(playData) {
-    let output = Mustache.render('{{#playlists}} <li class="list_name"><p>{{title}}</p><span class="list_deleter"></span></li> {{/playlists}}', {playlists:playData});
-    playlist.innerHTML = output;
+    for (let i = 0; i < playData.length; i++) {
+        if (playData[i].system !== 1) {
+            let newPlayList = '<li class="list_name"><p>' + playData[i].title + '</p><span class="list_deleter">✖︎</span></li>'
+            playlist.innerHTML = newPlayList;
+        }
+    }
 }
 
 var renderTracks = function(playData) {
-    console.log(playData)
-    console.log({tracks:playData})
-    let output = Mustashe.render('{{#tracks}} <li><a href="{{path}}"><p>{{title}}</p></a><span>{{duration}}</span></li> {{/tracks}}', {tracks:playData});
+    let output = Mustache.render('{{#tracks}} <li><article href="{{path}}"><p>{{title}}</p></article><span><p>{{duration}}</p></span></li> {{/tracks}}', {tracks:playData});
     tracklist.innerHTML = output;
-
+    let PC = PlayerControll()
+    PC.trackOnClick(playData);
 }
 
 getPlaylists(ajax)
